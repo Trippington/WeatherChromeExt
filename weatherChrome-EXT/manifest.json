@@ -1,0 +1,12 @@
+{
+    "name": "Parker Weather",
+    "version": "1.0.0",
+    "description": "This is an extention that displays the weather forecast in Parker Texas",
+    "manifest_version": 3,
+    "author": "Tripp Durham",
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Parker Forecast"
+    }
+
+}
