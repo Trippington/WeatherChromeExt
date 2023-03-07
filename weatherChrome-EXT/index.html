@@ -9,36 +9,73 @@
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <div>
+    <div class="heading">
         <h2>Parker Weather</h2>
-        <p>Current:</p>
-        <p id="Current">My Data</p>
-
-        <p>Current Temperature:</p>
-            <p id="current_temp">My Data</p>
-        <p>Humidity:</p>
-        <p id="humidity">My Data</p>
-
-        <p>UV Index:</p>
-        <p id="uv_index">My Data</p>
-
-        <p>Current:</p>
-        <p id="wind">My Data</p>
-
-        <p>Three Day High Temperature:</p>
-        <ul>
-            <li id="1h">My Data</li>
-            <li id="2h">My Data</li>
-            <li id="3h">My Data</li>
-        </ul>
-        <p>Three Day Low Temperature:</p>
-        <ul>
-            <li id="1l">My Data</li>
-            <li id="2l">My Data</li>
-            <li id="3l">My Data</li>
-        </ul>
-
+    <p id="timezone"></p>
+	<p id="clock"></p>
+	<p id="date"></p>
     </div>
+    <div class="box">
+        <h2>Current Weather</h2>
+        <div class="weather">
+          <img id="weather-icon" src="">
+          <p id="weather-text"></p>
+        </div>
+        <div class="data">
+          
+          <div class="row">
+            <div class="col">
+              <h3>Sunrise</h3>
+              <p id="sunrise"></p>
+
+              <h3>Temperature</h3>
+              <p id="current_temp">My Data</p>
+              <h3>Feels Like</h3>
+              <p id="feelsLike">My Data</p>
+              <h3>Humidity</h3>
+              <p id="humidity">My Data</p>
+            </div>
+            <div class="col">
+              <h3>Sunset</h3>
+              <p id="sunset"></p>
+
+              <h3>UV Index</h3>
+              <p id="uv_index"></p>
+              <h3>Wind</h3>
+              <p id="wind"></p>
+              <h3>Wind Gust</h3>
+              <p id="gust"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="forecast-head">
+        <h2>Three Day Forecast</h2>
+    </div>
+        <div class="forecast">
+        <ul class="day-one">
+            <li>High</li>
+            <li id="1h"></li>
+            <li>Low</li>
+            <li id="1l"></li>
+        </ul>
+        <ul class="day-two">
+            <li>High</li>
+            <li id="2h"></li>
+            <li>Low</li>
+            <li id="2l"></li>
+        </ul>
+        <ul class="day-three">
+            <li>High</li>
+            <li id="3h"></li>
+            <li>Low</li>
+            <li id="3l"></li>
+        </ul>
+        </div>
+        <p>Current:</p>
+        <p id="weather"></p>
+
+    
 </body>
 
 </html>
