@@ -23,6 +23,16 @@ async function fetchData() {
         gust_mph = tdata.current.gust_mph;
 
 
+        maxtemp_f = tdata.forecast.forecastday[0].day.maxtemp_f;
+        mintemp_f = tdata.forecast.forecastday[0].day.mintemp_f;
+
+        
+        daily_chance_of_rain = tdata.forecast.forecastday[0].day.daily_chance_of_rain;
+        totalprecip_in = tdata.forecast.forecastday[0].day.totalprecip_in;
+
+
+
+
         const maxtemp_f_day0 = tdata.forecast.forecastday[0].day.maxtemp_f;
         const maxtemp_f_day1 = tdata.forecast.forecastday[1].day.maxtemp_f;
         const maxtemp_f_day2 = tdata.forecast.forecastday[2].day.maxtemp_f;
@@ -31,21 +41,25 @@ async function fetchData() {
         const mintemp_f_day1 = tdata.forecast.forecastday[1].day.mintemp_f;
         const mintemp_f_day2 = tdata.forecast.forecastday[2].day.mintemp_f;
         
-
-        // hard coded test data
-        const weatherData = {"condition":{"text":"Overcast","icon":"https://cdn.weatherapi.com/weather/64x64/day/122.png","code":1009}};
     
         // Extract text and icon from the API response
-        const weatherText = weatherData.condition.text;
-        const weatherIcon = weatherData.condition.icon;
+        const weatherText = jsonResponse.current.condition.text;
+        const weatherIcon = "https:" + jsonResponse.current.condition.icon;
+
+
+        const sunrise = jsonResponse.forecast.forecastday[0].astro.sunrise;
+        const sunset = jsonResponse.forecast.forecastday[0].astro.sunset;
+
 
         // Update HTML elements with weather data
         document.getElementById("weather-text").textContent = weatherText;
         document.getElementById("weather-icon").setAttribute("src", weatherIcon);
-        //end of test section
 
 
-        //myJavaScriptVar = tdata.current.toString();
+        document.getElementById("sunrise").textContent = sunrise;
+        document.getElementById("sunset").textContent = sunset;
+        
+
 
         console.log(tdata);
         console.log("tdata.current.temp_f is: " + tdata.current.temp_f);
@@ -70,6 +84,13 @@ async function fetchData() {
         console.log("tdata.forecast.forecastday[2].day.mintemp_f is: " + tdata.forecast.forecastday[2].day.mintemp_f);
         document.getElementById("3l").innerHTML = mintemp_f_day2 + "&#176";;
 
+        document.getElementById("rainfall").innerHTML = totalprecip_in + "in";
+
+        document.getElementById("rain_chance").innerHTML = daily_chance_of_rain + "%";
+
+        document.getElementById("maxtemp1").innerHTML = maxtemp_f_day0 + "&#176";
+
+        document.getElementById("mintemp1").innerHTML = mintemp_f_day0 + "&#176";
 
         document.getElementById("gust").innerHTML = gust_mph + "mph";
         
@@ -112,4 +133,4 @@ function updateClock() {
 }
 
 // Update the clock every second
-setInterval(updateClock, 1000);
+setInterval(updateClock, 10);
